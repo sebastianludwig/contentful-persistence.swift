@@ -9,7 +9,7 @@ before_install:
 before_script:
   - carthage bootstrap --platform iOS --no-use-binaries
 script:
-- xcodebuild test -project ContentfulPersistence.xcodeproj -scheme ContentfulPersistence_iOS -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s,OS=10.3" | xcpretty -c
+- ./Scripts/travis-build-test.sh
 after_success:
 - bundle exec slather coverage --coveralls ContentfulPersistence.xcodeproj
 - pod lib lint ContentfulPersistenceSwift.podspec
